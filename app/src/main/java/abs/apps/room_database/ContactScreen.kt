@@ -1,3 +1,4 @@
+import abs.apps.room_database.AddContactDialog
 import abs.apps.room_database.ContactEvent
 import abs.apps.room_database.ContactState
 import abs.apps.room_database.SortType
@@ -39,6 +40,9 @@ fun ContactScreen(
         }
     }
     ) { padding ->
+        if(state.isAddingContact){
+            AddContactDialog(state = state, onEvent = onEvent)
+        }
         LazyColumn(
             content = {
                 item {
