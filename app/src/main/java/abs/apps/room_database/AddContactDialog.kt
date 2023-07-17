@@ -37,19 +37,33 @@ fun AddContactDialog(
                         onEvent(ContactEvent.SetFirstName(it))
                     },
                     placeholder = {
-                        Text(text = "Firts name")
+                        Text(text = "First name")
+                    }
+                )
+                TextField(
+                    value = state.lastName,
+                    onValueChange = {
+                        onEvent(ContactEvent.SetLastName(it))
+                    },
+                    placeholder = {
+                        Text(text = "Last name")
+                    }
+                )
+                TextField(
+                    value = state.phoneNumber,
+                    onValueChange = {
+                        onEvent(ContactEvent.SetPhoneNumber(it))
+                    },
+                    placeholder = {
+                        Text(text = "PhoneNumber")
                     }
                 )
 
             }
         },
         confirmButton = {
-            Box(
-                modifier = Modifier.fillMaxWidth(),
-                contentAlignment = CenterEnd
-            ) {
-                Button(onClick = { onEvent(ContactEvent.SaveContact) }) { Text(text = "Save") }
-            }
+            Button(onClick = { onEvent(ContactEvent.SaveContact) }) { Text(text = "Save") }
+
         }
 
     )
